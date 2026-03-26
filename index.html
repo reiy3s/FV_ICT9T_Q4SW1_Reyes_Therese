@@ -9,15 +9,21 @@
 
 <style>
 
+    body{
+        background-image: url('https://i.pinimg.com/1200x/1c/2a/ea/1c2aea1a2209724a937f12ecdeedec03.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     .form-control{
         width: 350px;
         margin-left: 4%;
     }
 
     #form-div{
-        background-color: rgb(180, 138, 24);
+        background-color: rgba(175, 171, 209, 0.9);
         width: 400px;
-        margin-top: 12%;
+        margin-top: 9%;
         border-radius: 15px;
     }
 
@@ -29,7 +35,12 @@
         <br><br>
 
         <h1>Login Form</h1>
-        <p>Welcome back, buddy! Please enter your credentials to log back in.</p>
+        <p>Welcome back, buddy!</p>
+
+        <details class="ontoggle">
+            <summary>Instructions</summary>
+            <p id="instructions">Please enter your credentials to log back in. <i>(username: internethacker + pw: stealYOwifi)</i></p>
+        </details>
 
         <form>
 
@@ -47,24 +58,43 @@
 
             <div>
                 <label for="checkbox">Remember me?</label>
-                <input type="checkbox" name="checkbox-rmbr" id="rmbr" class="">
+                <input type="checkbox" name="checkbox-rmbr" id="rmbr" class="" onclick="checkbox()">
             </div>
+
+            <i><div id="display"></div></i><br>
+
+            <button type="button" class="btn btn-info" ondclick="GETIN()">Login</button>
 
         <br><br></form>
     </div>
 
     <script>
         function GETIN(){
-            var user = internethacker
-                if (user===internethacker);
-                    alert("");
+            let user = document.getElementById("user").value;
+            let password = document.getElementById("pw").value;
+                if ((user===internethacker) && (password===stealYOwifi)){
+                    alert("Welcome back, internethacker!" );
                 }
 
                 else{
-                    alert("");
+                    alert("Wrong username or password. Nice try getting in, buddy!");
                 }
+        }
 
-            var pw = stealy0WIFI
+        function checkbox() {
+        let remember = document.getElementById("rmbr").checked; 
+        let display = document.getElementById("display");
+
+        switch(remember) {
+            case true:
+                display.innerHTML = "We'll keep you in mind!"
+            break;
+
+            case false:
+                display.innerHTML = ""
+            break;
+            }
+        }
         
     </script>
     
